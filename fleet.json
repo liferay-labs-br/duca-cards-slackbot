@@ -1,0 +1,24 @@
+{
+    "functions": [
+        {
+            "handler": "src/index.js",
+            "http": {
+                "method": [
+                    "POST"
+                ],
+                "path": "/"
+            },
+            "name": "duca"
+        },
+        {
+            "handler": "src/interaction.js",
+            "http": {
+                "method": [
+                    "POST"
+                ],
+                "path": "/interaction"
+            },
+            "name": "duca-interaction"
+        }
+    ]
+}
