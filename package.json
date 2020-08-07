@@ -1,0 +1,11 @@
+{
+  "name": "duca-cards-slackbot",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Diego Nascimento <diego.nascimento@liferay.com>",
+  "license": "MIT",
+  "dependencies": {
+    "node-fetch": "^2.6.0",
+    "string-similarity": "^4.0.2"
+  }
+}

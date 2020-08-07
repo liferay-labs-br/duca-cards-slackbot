@@ -1,0 +1,13 @@
+{
+    "functions": [
+        {
+            "handler" : "src/index.js",
+            "http": {
+                "method": ["POST"],
+                "path": "/:proxy+"
+            },
+            "name": "duca",
+            "timeout": 120000
+        }
+    ]
+}
