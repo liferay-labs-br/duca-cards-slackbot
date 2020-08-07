@@ -1,2 +1,3 @@
 .fleet
 node_modules/
+dist
