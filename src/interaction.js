@@ -2,6 +2,13 @@ import fetch from 'node-fetch';
 
 import { getMainContent, getHelp } from './blocks';
 
+const DEFAULT_REQUEST_PAYLOAD = {
+	method: 'POST',
+	headers: {
+		'Content-type': 'application/json'
+	}
+};
+
 export default async (req, res) => {
 	try {
 		const { payload } = req.body;
@@ -13,18 +20,20 @@ export default async (req, res) => {
 
 		const [{ value }] = actions;
 
-		const { keyMatch, message } = JSON.parse(value);
+		const { cancel, keyMatch, message } = JSON.parse(value);
+
+		const responseBody = {
+			"delete_original": "true",
+		};
+
+		if (!cancel) {
+			responseBody["response_type"] = "in_channel";
+			responseBody["blocks"] = getMainContent(keyMatch, message);
+		}
 
 		await fetch(response_url, {
-			method: 'POST',
-			headers: {
-				'Content-type': 'application/json'
-			},
-			body: JSON.stringify({
-				"delete_original": "true",
-				"response_type": "in_channel",
-				"blocks": getMainContent(keyMatch, message)
-			})
+			...DEFAULT_REQUEST_PAYLOAD,
+			body: JSON.stringify(responseBody)
 		});
 
 		res.send('');

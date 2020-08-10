@@ -11,3 +11,4 @@ jobs:
         with:
           apiToken: ${{ secrets.FLEET_API_TOKEN }}
           projectId: ${{ secrets.FLEET_PROJECT_ID }}
+          prod: true
