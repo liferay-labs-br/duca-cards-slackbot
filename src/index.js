@@ -45,6 +45,16 @@ const getConfirmationCard = (cardName, message) => {
                     },
                     style: "primary",
                     value: JSON.stringify({ keyMatch, message })
+                },
+                {
+                    type: "button",
+                    text: {
+                        type: "plain_text",
+                        emoji: true,
+                        text: "Cancel"
+                    },
+                    style: "danger",
+                    value: JSON.stringify({cancel: true})
                 }
             ]
         }]
